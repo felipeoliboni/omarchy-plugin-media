@@ -12,7 +12,9 @@ A now-playing bar widget for [Omarchy](https://omarchy.org) 4.
 
 Instead of a single icon, it shows the current track inline in the bar —
 icon + "artist — title" — and opens a popup with the album art, track detail,
-a seek bar, and the transport controls when clicked.
+a seek bar, and the transport controls when clicked. **Right-click it** for
+appearance options: show/hide the album art, show/hide the icon, and the
+label's width (see [Appearance](#appearance)).
 
 ## Features
 
@@ -56,10 +58,10 @@ Optionally add the `SUPER + CTRL + M` hotkey — see [Keybindings](#keybindings)
 ## Remove
 
 ```bash
-omarchy plugin remove felipe.media
+omarchy plugin remove foliboni.media
 ```
 
-That deletes `~/.config/omarchy/plugins/felipe.media/` and drops the widget
+That deletes `~/.config/omarchy/plugins/foliboni.media/` and drops the widget
 from the bar. Nothing else on your system is touched.
 
 ## Appearance
@@ -97,14 +99,14 @@ popup is much more useful when you can summon it without reaching for the mouse.
 Add this to `~/.config/hypr/bindings.lua`, then `hyprctl reload`:
 
 ```lua
-o.bind("SUPER + CTRL + M", "Now Playing", "omarchy-shell shell toggle felipe.media")
+o.bind("SUPER + CTRL + M", "Now Playing", "omarchy-shell shell toggle foliboni.media")
 ```
 
 `SUPER + CTRL + M` now toggles the popup open and closed. The same call works from a
 script or another terminal:
 
 ```bash
-omarchy-shell shell toggle felipe.media
+omarchy-shell shell toggle foliboni.media
 ```
 
 `omarchy-shell` ships with Omarchy and forwards an IPC message to the shell process
@@ -187,7 +189,7 @@ official marketplace, repo `omacom/omarchy-plugin-marketplace`):
    `manifest.json`, a `README.md`, and a `LICENSE`. Install/remove must be safe —
    satisfied above.
 2. **Required `manifest.json` fields**: `schemaVersion`, `id` (unique, namespaced —
-   `felipe.media` qualifies), `name`, `version`, `author`, `description`, `kinds`,
+   `foliboni.media` qualifies), `name`, `version`, `author`, `description`, `kinds`,
    `entryPoints`. All present in this repo's `manifest.json`.
 3. **Validate before submitting**:
    ```bash

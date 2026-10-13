@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "id": "felipe.media",
+  "id": "foliboni.media",
   "name": "Now Playing",
   "version": "1.0.0",
   "author": "Felipe Oliboni",
   "license": "MIT",
-  "description": "Now-playing bar widget with album art and playback controls for Omarchy 4",
+  "description": "Now-playing bar widget with album art and playback controls for Omarchy 4. Right-click for appearance options.",
   "kinds": [
     "bar-widget"
   ],
@@ -14,7 +14,7 @@
   },
   "barWidget": {
     "displayName": "Now Playing",
-    "description": "Shows the current track inline in the bar, with a popup for album art, progress and transport controls.",
+    "description": "Shows the current track inline in the bar, with a popup for album art, progress and transport controls. Right-click for appearance options (album art, icon, label width).",
     "category": "Media",
     "allowMultiple": false,
     "defaultSection": "left",

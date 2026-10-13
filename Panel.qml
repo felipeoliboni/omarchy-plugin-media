@@ -14,7 +14,7 @@ import "MediaPanelModel.js" as Model
 // upstream fixes.
 BarWidget {
   id: root
-  moduleName: "felipe.media"
+  moduleName: "foliboni.media"
 
   // Prefer the first-party service, but do not depend on reaching it: Omarchy
   // 4.0.3 only exposes omarchy.media to plugins declaring kind "bar", so for a
@@ -147,7 +147,7 @@ BarWidget {
     onTriggered: root.syncPosition()
   }
 
-  // Lets `omarchy-shell shell toggle felipe.media` (and a bound hotkey) open
+  // Lets `omarchy-shell shell toggle foliboni.media` (and a bound hotkey) open
   // the Now Playing panel without touching the mouse. BarWidget itself has
   // no IPC of its own, unlike the Panel base this plugin used to extend.
   IpcHandler {
