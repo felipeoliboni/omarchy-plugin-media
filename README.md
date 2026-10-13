@@ -2,7 +2,7 @@
 
 A now-playing bar widget for [Omarchy](https://omarchy.org) 4.
 
-> **Fork notice.** This is Felipe Oliboni's personal fork of
+> **Fork notice.** This is a personal fork of
 > [sumdahl/omarchy-plugin-media](https://github.com/sumdahl/omarchy-plugin-media)
 > (plugin id `io.github.sumdahl.media`). All credit for the original design —
 > the popup, the MPRIS fallback, the keyboard navigation — goes to Sumiran
