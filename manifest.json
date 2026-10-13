@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "foliboni.media",
-  "name": "Now Playing",
+  "name": "Media Strip",
   "version": "1.0.0",
   "author": "Felipe Oliboni",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "barWidget": "Panel.qml"
   },
   "barWidget": {
-    "displayName": "Now Playing",
+    "displayName": "Media Strip",
     "description": "Shows the current track inline in the bar, with a popup for album art, progress and transport controls. Right-click for appearance options (album art, icon, label width).",
     "category": "Media",
     "allowMultiple": false,

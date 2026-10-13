@@ -1,4 +1,4 @@
-# Now Playing
+# Media Strip
 
 A now-playing bar widget for [Omarchy](https://omarchy.org) 4.
 
