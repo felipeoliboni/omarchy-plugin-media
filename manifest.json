@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "id": "io.github.sumdahl.media",
+  "id": "felipe.media",
   "name": "Now Playing",
-  "version": "1.0.1",
-  "author": "Sumiran Dahal",
+  "version": "1.0.0",
+  "author": "Felipe Oliboni",
   "license": "MIT",
-  "description": "Now-playing panel with album art and playback controls",
+  "description": "Now-playing bar widget with album art and playback controls for Omarchy 4",
   "kinds": [
     "bar-widget"
   ],
@@ -14,11 +14,14 @@
   },
   "barWidget": {
     "displayName": "Now Playing",
-    "description": "Now-playing panel with album art and playback controls",
+    "description": "Shows the current track inline in the bar, with a popup for album art, progress and transport controls.",
     "category": "Media",
     "allowMultiple": false,
-    "defaultSection": "right",
+    "defaultSection": "left",
     "defaults": {
+      "showAlbumArt": false,
+      "showIcon": true,
+      "maxLabelWidth": 400,
       "artSize": 96,
       "showProgress": true,
       "showSourcePicker": true,
@@ -26,9 +29,34 @@
     },
     "schema": [
       {
+        "key": "showAlbumArt",
+        "type": "boolean",
+        "label": "Show album art in the bar",
+        "description": "Small cover thumbnail next to the track name. Same thing as right-click → Show album art.",
+        "defaultValue": false
+      },
+      {
+        "key": "showIcon",
+        "type": "boolean",
+        "label": "Show music icon in the bar",
+        "description": "Play/pause note before the track name. Same thing as right-click → Show music icon.",
+        "defaultValue": true
+      },
+      {
+        "key": "maxLabelWidth",
+        "type": "integer",
+        "label": "Widget width",
+        "description": "Maximum width, in pixels, of the track label in the bar before it elides. Same thing as right-click → Widget width.",
+        "min": 60,
+        "max": 600,
+        "step": 10,
+        "defaultValue": 400
+      },
+      {
         "key": "artSize",
         "type": "integer",
         "label": "Album art size",
+        "description": "Cover size, in pixels, inside the Now Playing popup.",
         "min": 48,
         "max": 200,
         "step": 8,
@@ -38,23 +66,26 @@
         "key": "showProgress",
         "type": "boolean",
         "label": "Show track progress",
-        "description": "Elapsed/total time and a seek bar.",
+        "description": "Elapsed/total time and a seek bar in the Now Playing popup.",
         "defaultValue": true
       },
       {
         "key": "showSourcePicker",
         "type": "boolean",
         "label": "Show source picker",
-        "description": "Lists the other players when more than one is running.",
+        "description": "Lists the other running players at the bottom of the Now Playing popup.",
         "defaultValue": true
       },
       {
         "key": "spotifyAccent",
         "type": "boolean",
         "label": "Spotify accent",
-        "description": "Tint the panel accent while Spotify is the active player.",
+        "description": "Tint the popup's accent Spotify green while Spotify is the active player.",
         "defaultValue": true
       }
     ]
+  },
+  "omarchy": {
+    "clonedFrom": "io.github.sumdahl.media"
   }
 }
