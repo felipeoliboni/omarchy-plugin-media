@@ -138,6 +138,17 @@ BarWidget {
   onActivePlayerChanged: syncPosition()
   onPopupOpenChanged: if (popupOpen) syncPosition()
 
+  // The bar widget itself disappears when media stops (visible: hasMedia,
+  // width collapses to 0), but a PopupCard is a separate top-level window --
+  // it does not inherit that visibility. Without this, either popup can be
+  // left open and anchored to a now-invisible, zero-size item: nothing in
+  // the bar to right-click or click-away-from to dismiss it, so it hangs on
+  // screen until the shell restarts.
+  onHasMediaChanged: if (!hasMedia) {
+    popupOpen = false
+    settingsOpen = false
+  }
+
   Timer {
     id: positionTimer
     interval: 1000
@@ -597,11 +608,24 @@ BarWidget {
   }
 
   // ---------- Appearance (right-click) ----------
+
+  // A dedicated owner, distinct from the Now Playing popup's. PopupCard
+  // dismisses itself (outside click, Esc) by calling `owner.close()`, and
+  // both popups sharing `owner: root` meant that call always resolved to
+  // root.close() -- which only ever clears popupOpen. The appearance popup
+  // never got a close signal of its own, so it stuck around once opened,
+  // and its coordinatorKey (used for the bar's one-popout-at-a-time
+  // tracking) collided with the other popup's for the same reason.
+  QtObject {
+    id: settingsOwner
+    function close() { root.closeSettings() }
+  }
+
   PopupCard {
     id: settingsPopup
     anchorItem: root
     bar: root.bar
-    owner: root
+    owner: settingsOwner
     open: root.settingsOpen
     contentWidth: settingsPopup.fittedContentWidth(Style.space(300))
     contentHeight: settingsPopup.fittedContentHeight(settingsColumn.implicitHeight)
