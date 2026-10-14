@@ -194,6 +194,7 @@ BarWidget {
 
       Text {
         anchors.centerIn: parent
+        textFormat: Text.PlainText
         visible: root.artUrl === "" || barArt.status !== Image.Ready
         text: "󰝚"
         color: root.bar.barForeground
@@ -313,6 +314,7 @@ BarWidget {
           // fetch shows the placeholder rather than an empty tile.
           Text {
             anchors.centerIn: parent
+            textFormat: Text.PlainText
             visible: art.status !== Image.Ready
             text: art.status === Image.Loading ? "󰧑" : "󰝚"
             color: Qt.darker(root.bar.foreground, 1.4)
@@ -335,6 +337,7 @@ BarWidget {
           spacing: Style.space(3)
 
           Text {
+            textFormat: Text.PlainText
             text: root.title
             color: root.bar.foreground
             font.family: root.bar.fontFamily
@@ -347,6 +350,7 @@ BarWidget {
           }
 
           Text {
+            textFormat: Text.PlainText
             text: root.artist
             color: Qt.darker(root.bar.foreground, 1.3)
             font.family: root.bar.fontFamily
@@ -357,6 +361,7 @@ BarWidget {
           }
 
           Text {
+            textFormat: Text.PlainText
             text: root.album
             color: Qt.darker(root.bar.foreground, 1.6)
             font.family: root.bar.fontFamily
@@ -367,6 +372,7 @@ BarWidget {
           }
 
           Text {
+            textFormat: Text.PlainText
             text: root.secondary
             color: Qt.darker(root.bar.foreground, 1.8)
             font.family: root.bar.fontFamily
@@ -407,6 +413,7 @@ BarWidget {
           Text {
             id: elapsedLabel
             anchors.left: parent.left
+            textFormat: Text.PlainText
             text: Model.formatTime(root.livePosition)
             color: Qt.darker(root.bar.foreground, 1.5)
             font.family: root.bar.fontFamily
@@ -415,6 +422,7 @@ BarWidget {
 
           Text {
             anchors.right: parent.right
+            textFormat: Text.PlainText
             text: Model.formatTime(root.trackLength)
             color: Qt.darker(root.bar.foreground, 1.5)
             font.family: root.bar.fontFamily
@@ -540,6 +548,7 @@ BarWidget {
                 anchors.verticalCenter: parent.verticalCenter
                 width: Style.space(18)
                 horizontalAlignment: Text.AlignHCenter
+                textFormat: Text.PlainText
                 text: sourceRow.player && sourceRow.player.isPlaying ? "󰏤" : "󰐊"
                 color: root.bar.foreground
                 font.family: root.bar.fontFamily
@@ -552,6 +561,7 @@ BarWidget {
                 spacing: Style.space(1)
 
                 Text {
+                  textFormat: Text.PlainText
                   text: Model.displayTitle(sourceRow.player)
                   color: root.bar.foreground
                   font.family: root.bar.fontFamily
@@ -562,6 +572,7 @@ BarWidget {
                 }
 
                 Text {
+                  textFormat: Text.PlainText
                   text: Model.playerLabel(sourceRow.player)
                   color: Qt.darker(root.bar.foreground, 1.5)
                   font.family: root.bar.fontFamily
@@ -601,6 +612,7 @@ BarWidget {
       spacing: Style.space(10)
 
       Text {
+        textFormat: Text.PlainText
         text: "NOW PLAYING"
         color: root.bar.foreground
         font.family: root.bar.fontFamily
@@ -666,6 +678,7 @@ BarWidget {
       Text {
         id: settingLabel
         anchors.left: parent.left
+        textFormat: Text.PlainText
         text: sliderSetting.label
         color: root.bar.foreground
         font.family: root.bar.fontFamily
@@ -675,6 +688,7 @@ BarWidget {
       Text {
         id: settingValue
         anchors.right: parent.right
+        textFormat: Text.PlainText
         text: Math.round(slider.dragging ? slider.liveValue : sliderSetting.currentValue) + sliderSetting.suffix
         color: Qt.darker(root.bar.foreground, 1.35)
         font.family: root.bar.fontFamily
